@@ -1,0 +1,3 @@
+/home/chauncey/DataStructure/build/CMakeFiles/DataStructure.dir
+/home/chauncey/DataStructure/build/CMakeFiles/edit_cache.dir
+/home/chauncey/DataStructure/build/CMakeFiles/rebuild_cache.dir
