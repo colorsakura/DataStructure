@@ -1,1 +1,0 @@
-/usr/bin/clang -O3 -DNDEBUG CMakeFiles/DataStructure.dir/main.c.o CMakeFiles/DataStructure.dir/src/array.c.o CMakeFiles/DataStructure.dir/src/sequentiallist.c.o CMakeFiles/DataStructure.dir/src/singlelist.c.o CMakeFiles/DataStructure.dir/complex/complex.c.o -o DataStructure 
