@@ -1,7 +1,8 @@
 #include "singlelist.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-SingleList createSingleList() {
+__attribute__((unused)) SingleList createSingleList() {
     SingleList L;
     L = (SingleList) malloc(sizeof(SingleListNode));
     if (L == NULL) {
@@ -12,67 +13,67 @@ SingleList createSingleList() {
     return L;
 }
 
-int isSingleListEmpty(SingleList L) {
+__attribute__((unused)) int isSingleListEmpty(SingleList L) {
     return L->next == NULL;
 }
 
-void destroySingleList(SingleList L) {
-    SingleList p = L->next;
+__attribute__((unused)) void destroySingleList(SingleList L) {
+    SingleList p = (SingleList) L->next;
     while (p != NULL) {
         L->next = p->next;
         free(p);
-        p = L->next;
+        p = (SingleList) L->next;
     }
     free(L);
 }
 
-int getSingleListLength(SingleList L) {
+__attribute__((unused)) int getSingleListLength(SingleList L) {
     int length = 0;
-    SingleList p = L->next;
+    SingleList p = (SingleList) L->next;
     while (p != NULL) {
         length++;
-        p = p->next;
+        p = (SingleList) p->next;
     }
     return length;
 }
 
-int getSingleListValue(SingleList L, unsigned location) {
+__attribute__((unused)) int getSingleListValue(SingleList L, int index) {
     int length = 0;
-    SingleList p = L->next;
+    SingleList p = (SingleList) L->next;
     while (p != NULL) {
-        if (length == location) {
+        if (length == index) {
             return p->data;
         }
         length++;
-        p = p->next;
+        p = (SingleList) p->next;
     }
     return -1;
 }
 
-void setSingleListValue(SingleList L, unsigned location, int value) {
-    if(location > getSingleListLength(L) || location < 0) {
+__attribute__((unused)) void setSingleListValue(SingleList L, int index, int value) {
+    if (index > getSingleListLength(L) || index < 0) {
         exit(ERR_INDEX);
     }
 
     int length = 0;
-    SingleList p = L->next;
+    SingleList p = (SingleList) L->next;
 
     while (p != NULL) {
-        if (length == location) {
+        if (length == index) {
             p->data = value;
             return;
         }
         length++;
-        p = p->next;
+        p = (SingleList) p->next;
     }
 }
 
-void addSingleListValue(SingleList L, int value) {
+__attribute__((unused)) void addSingleListValue(SingleList L, int value) {
     SingleList p = L;
     while (p->next != NULL) {
-        p = p->next;
+        p = (SingleList) p->next;
     }
-    p->next = (SingleList) malloc(sizeof(struct SingleListNode));
+    p->next = (SingleListNode *) (struct SingleListNode *) (SingleList) malloc(sizeof(SingleListNode));
     if (p->next == NULL) {
         exit(ERR_MEMORY);
     }
@@ -80,12 +81,12 @@ void addSingleListValue(SingleList L, int value) {
     p->next->next = NULL;
 }
 
-void insertSingleListValue(SingleList L, int value, unsigned location) {
+__attribute__((unused)) void insertSingleListValue(SingleList L, int value, int index) {
     int length = 0;
     SingleList p = L->next;
     while (p != NULL) {
-        if (length == location) {
-            SingleList newNode = (SingleList) malloc(sizeof(struct SingleListNode));
+        if (length == index) {
+            SingleList newNode = (SingleList) malloc(sizeof(SingleListNode));
             if (newNode == NULL) {
                 exit(ERR_MEMORY);
             }
@@ -99,15 +100,15 @@ void insertSingleListValue(SingleList L, int value, unsigned location) {
     }
 }
 
-int removeSingleListValue(SingleList L, unsigned location) {
+__attribute__((unused)) void removeSingleListValue(SingleList L, int index) {
     int length = 0;
     SingleList p = L->next;
     SingleList q = L;
     while (p != NULL) {
-        if (length == location) {
+        if (length == index) {
             q->next = p->next;
             free(p);
-            return OK;
+            return;
         }
         length++;
         q = p;
@@ -115,7 +116,7 @@ int removeSingleListValue(SingleList L, unsigned location) {
     }
 }
 
-void printSingleList(SingleList L) {
+__attribute__((unused)) void printSingleList(SingleList L) {
     SingleList p = L->next;
     while (p != NULL) {
         printf("%d ", p->data);

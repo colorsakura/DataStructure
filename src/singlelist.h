@@ -3,25 +3,24 @@
 
 #include "error.h"
 
-typedef struct {
+typedef struct Node SingleListNode;
+typedef struct Node {
     int data;
-    struct SingleListNode *next;
+    SingleListNode *next;
 }SingleListNode;
 
 typedef SingleListNode *SingleList;
-typedef SingleListNode *SingleListIterator;
-typedef SingleListNode *SingleListReverseIterator;
 
-SingleList createSingleList();
-int isSingleListEmpty(SingleList list);
-void destroySingleList(SingleList list);
-int getSingleListLength(SingleList list);
-int getSingleListValue(SingleList list, int index);
-void setSingleListValue(SingleList list, int index, int value);
-void addSingleListValue(SingleList list, int value);
-void insertSingleListValue(SingleList list, int index, int value);
-int removeSingleListValue(SingleList list, int index);
-void printSingleList(SingleList list);
+__attribute__((unused)) SingleList createSingleList();
+__attribute__((unused)) int isSingleListEmpty(SingleList list);
+__attribute__((unused)) void destroySingleList(SingleList list);
+__attribute__((unused)) int getSingleListLength(SingleList list);
+__attribute__((unused)) int getSingleListValue(SingleList list, int index);
+__attribute__((unused)) void setSingleListValue(SingleList list, int index, int value);
+__attribute__((unused)) void addSingleListValue(SingleList list, int value);
+__attribute__((unused)) void insertSingleListValue(SingleList list, int index, int value);
+__attribute__((unused)) void removeSingleListValue(SingleList list, int index);
+__attribute__((unused)) void printSingleList(SingleList list);
 
 
 #endif // SINGLELIST_H
