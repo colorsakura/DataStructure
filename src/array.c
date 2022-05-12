@@ -25,11 +25,26 @@ int len(Node *L) {
     return MAX_LEN;
 }
 
+
+status enlarge(Node *L) {
+    Node *tmpL = L;
+    L = (Node *) malloc(sizeof(Node) * (MAX_LEN + ENLARGE_LEN));
+    for (int i = 0; i < MAX_LEN; i++) {
+        L[i].id = tmpL[i].id;
+        strcpy(L[i].name, tmpL[i].name);
+        L[i].sex = tmpL[i].sex;
+        L[i].age = tmpL[i].age;
+    }
+    for (int i = MAX_LEN; i < (MAX_LEN + ENLARGE_LEN); i++) {
+        L[i].id = -1;
+    }
+    free(tmpL);
+    return OK;
+}
+
 status append(Node *L, Node node) {
     int i = len(L);
-    if (i == MAX_LEN) {
-        return ERR_INDEX;
-    }
+    if (i >= MAX_LEN) enlarge(L);
     L[i].id = node.id;
     strcpy(L[i].name, node.name);
     L[i].sex = node.sex;
@@ -54,20 +69,4 @@ int find(Node *L, ...) {
     va_list args;
     va_start(args, L);
     return 0;
-}
-
-status enlarge(Node *L) {
-    Node *tmpL = (Node *) malloc(sizeof(Node) * (MAX_LEN + ENLARGE_LEN));
-    for (int i = 0; i < MAX_LEN; i++) {
-        tmpL[i].id = L[i].id;
-        strcpy(tmpL[i].name, L[i].name);
-        tmpL[i].sex = L[i].sex;
-        tmpL[i].age = L[i].age;
-    }
-    for (int i = MAX_LEN; i < (MAX_LEN + ENLARGE_LEN); i++) {
-        tmpL[i].id = -1;
-    }
-    free(L);
-    L = tmpL;
-    return OK;
 }

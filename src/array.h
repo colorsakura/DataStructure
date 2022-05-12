@@ -25,7 +25,6 @@ status append(Node *L, Node node);
 status insert(Node *L, Node node, unsigned index);
 status delete (Node *L, unsigned index);
 // int find(Node *L, ...);
-status enlarge(Node *L);
 Node *combine(Node *L1, Node *L2);
 status sort_by_id(Node *L);
 
