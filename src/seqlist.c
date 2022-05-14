@@ -54,7 +54,7 @@ seqlist_insert(seqlist *L, student node, int index) {
         for (int i = L->length; i <= index; i--) {
             echo_seqlist(L->data + i, L->data[i - 1]);
         }
-        echo_seqlist(L->data + index, node);
+        echo_seqlist(L->data + index - 1, node);
         L->length++;
     } else {
         seqlist_append(L, node);
