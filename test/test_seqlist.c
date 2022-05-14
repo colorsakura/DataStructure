@@ -1,4 +1,4 @@
-#include "src/seqlist.h"
+#include "../src/seqlist.h"
 #include <stdio.h>
 
 int main(void) {

@@ -19,6 +19,7 @@ enlarge(seqlist *L) {
     return OK;
 }
 
+//copy n to *s
 status
 echo_seqlist(student *s, student n) {
     s->id = n.id;
@@ -51,7 +52,7 @@ status
 seqlist_insert(seqlist *L, student node, int index) {
     if (L->length == L->maxsize - 1) enlarge(L);
     if (0 < index && index <= L->length) {
-        for (int i = L->length; i <= index; i--) {
+        for (int i = L->length; i >= index; i--) {
             echo_seqlist(L->data + i, L->data[i - 1]);
         }
         echo_seqlist(L->data + index - 1, node);
