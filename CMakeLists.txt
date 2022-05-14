@@ -8,4 +8,4 @@ set(CMAKE_C_STANDARD 11)
 
 #add_executable(DataStructure test/test_seqlist.c ${src} ${com})
 
-add_executable(test/test_seqlist.c src/seqlist.c)
+add_executable(test_seqlist.c src/seqlist.c)

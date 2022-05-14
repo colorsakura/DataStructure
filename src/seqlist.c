@@ -4,7 +4,7 @@
 #include <string.h>
 
 seqlist *
-create() {
+seqlist_create() {
     seqlist *list = (seqlist *) malloc(sizeof(seqlist));
     list->data = (student *) malloc(sizeof(student) * 20);
     list->length = 0;
@@ -29,7 +29,7 @@ echo_seqlist(student *s, student n) {
 }
 
 status
-append(seqlist *L, student node) {
+seqlist_append(seqlist *L, student node) {
     if (L->length == L->maxsize - 1) enlarge(L);
     echo_seqlist(L->data + L->length, node);
     L->length++;
@@ -37,7 +37,7 @@ append(seqlist *L, student node) {
 }
 
 status
-remove(seqlist *L, int index) {
+seqlist_remove(seqlist *L, int index) {
     if (0 < index && index <= L->length) {
         for (int i = index; i < L->length; i++) {
             echo_seqlist(L->data + index - 1, L->data[index]);
@@ -48,11 +48,12 @@ remove(seqlist *L, int index) {
 }
 
 status
-insert(seqlist *L, student node, int index) {
+seqlist_insert(seqlist *L, student node, int index) {
     if (L->length == L->maxsize - 1) enlarge(L);
     if (0 < index && index <= L->length) {
         echo_seqlist(L->data + index, L->data[index - 1]);
     }
+    echo_seqlist(L->data + index, node);
     L->length++;
     return OK;
 }

@@ -8,17 +8,17 @@ typedef struct {
     char name[20];
     int age;
     char sex;
-}student;
+} student;
 
 typedef struct {
     student *data;
     int length, maxsize;
-}seqlist;
+} seqlist;
 
-seqlist *create();
-status append(seqlist *L, student node);
-status remove(seqlist *L, int index);
-status insert(seqlist *L, student node, int index);
+seqlist *seqlist_create();
+status seqlist_append(seqlist *L, student node);
+status seqlist_remove(seqlist *L, int index);
+status seqlist_insert(seqlist *L, student node, int index);
 status print_seqlist(seqlist L);
 
-#endif // DATASTRUCT_SEQLIST_H_
+#endif// DATASTRUCT_SEQLIST_H_
