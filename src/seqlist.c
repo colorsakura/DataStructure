@@ -3,21 +3,24 @@
 #include <stdlib.h>
 #include <string.h>
 
-seqlist *create() {
-    seqlist *list = (seqlist *)malloc(sizeof(seqlist));
-    list->data = (student *)malloc(sizeof(student) * 20);
+seqlist *
+create() {
+    seqlist *list = (seqlist *) malloc(sizeof(seqlist));
+    list->data = (student *) malloc(sizeof(student) * 20);
     list->length = 0;
     list->maxsize = 20;
     return list;
 }
 
-status enlarge(seqlist *L) {
-    L->data = (student *)realloc(L->data, sizeof(student) * L->maxsize * 2);
+status
+enlarge(seqlist *L) {
+    L->data = (student *) realloc(L->data, sizeof(student) * L->maxsize * 2);
     L->maxsize *= 2;
     return OK;
 }
 
-status echo_seqlist(student *s, student n) {
+status
+echo_seqlist(student *s, student n) {
     s->id = n.id;
     strcpy(s->name, n.name);
     s->age = n.age;
@@ -25,33 +28,37 @@ status echo_seqlist(student *s, student n) {
     return OK;
 }
 
-status append(seqlist *L, student node) {
-    if(L->length == L->maxsize - 1) enlarge(L);
-    echo_seqlist(L->data+L->length, node);
+status
+append(seqlist *L, student node) {
+    if (L->length == L->maxsize - 1) enlarge(L);
+    echo_seqlist(L->data + L->length, node);
     L->length++;
     return OK;
 }
 
-status delete(seqlist *L, int index) {
-    if(0 < index && index <= L->length) {
+status
+remove(seqlist *L, int index) {
+    if (0 < index && index <= L->length) {
         for (int i = index; i < L->length; i++) {
-            echo_seqlist(L->data+index-1, L->data[index]);
+            echo_seqlist(L->data + index - 1, L->data[index]);
         }
         L->length--;
     }
     return OK;
 }
 
-status insert(seqlist *L, student node, int index) {
+status
+insert(seqlist *L, student node, int index) {
     if (L->length == L->maxsize - 1) enlarge(L);
     if (0 < index && index <= L->length) {
-        echo_seqlist(L->data+index, L->data[index - 1]);
+        echo_seqlist(L->data + index, L->data[index - 1]);
     }
     L->length++;
     return OK;
 }
 
-status print_seqlist(seqlist L) {
+status
+print_seqlist(seqlist L) {
     for (int i = 0; i < L.length; i++) {
         printf("%d\n", L.data[i].id);
         printf("%s\n", L.data[i].name);

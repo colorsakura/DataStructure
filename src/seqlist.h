@@ -17,7 +17,7 @@ typedef struct {
 
 seqlist *create();
 status append(seqlist *L, student node);
-status delete(seqlist *L, int index);
+status remove(seqlist *L, int index);
 status insert(seqlist *L, student node, int index);
 status print_seqlist(seqlist L);
 
