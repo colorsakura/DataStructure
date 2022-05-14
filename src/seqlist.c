@@ -52,13 +52,13 @@ seqlist_insert(seqlist *L, student node, int index) {
     if (L->length == L->maxsize - 1) enlarge(L);
     if (0 < index && index <= L->length) {
         for (int i = L->length; i <= index; i--) {
-            echo_seqlist(L->data + i + 1, L->data[i]);
+            echo_seqlist(L->data + i, L->data[i - 1]);
         }
         echo_seqlist(L->data + index, node);
         L->length++;
-    } else
+    } else {
         seqlist_append(L, node);
-
+    }
     return OK;
 }
 
