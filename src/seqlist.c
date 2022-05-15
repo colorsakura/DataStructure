@@ -64,7 +64,7 @@ seqlist_insert(seqlist *L, student node, int index) {
 }
 
 status
-print_seqlist(seqlist L) {
+seqlist_print(seqlist L) {
     for (int i = 0; i < L.length; i++) {
         printf("Index %d\n", i + 1);
         printf("id: %d\n", L.data[i].id);

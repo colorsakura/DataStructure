@@ -8,6 +8,6 @@ int main(void) {
     seqlist_append(list, test1);
     seqlist_insert(list, test2, 1);
     printf("%d\n", list->length);
-    print_seqlist(*list);
+    seqlist_print(*list);
     return 0;
 }
