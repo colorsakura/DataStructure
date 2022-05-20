@@ -20,5 +20,6 @@ status seqlist_append(seqlist *L, student node);
 status seqlist_remove(seqlist *L, int index);
 status seqlist_insert(seqlist *L, student node, int index);
 status seqlist_print(seqlist L);
+status seqlist_sort_by_id(seqlist *L);
 
 #endif// DATASTRUCT_SEQLIST_H_

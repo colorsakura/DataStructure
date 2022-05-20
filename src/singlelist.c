@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-__attribute__((unused)) SingleList createSingleList() {
+SingleList
+createSingleList() {
     SingleList L;
     L = (SingleList) malloc(sizeof(SingleListNode));
     if (L == NULL) {
@@ -13,11 +14,13 @@ __attribute__((unused)) SingleList createSingleList() {
     return L;
 }
 
-__attribute__((unused)) int isSingleListEmpty(SingleList L) {
+int
+isSingleListEmpty(SingleList L) {
     return L->next == NULL;
 }
 
-__attribute__((unused)) void destroySingleList(SingleList L) {
+void
+destroySingleList(SingleList L) {
     SingleList p = (SingleList) L->next;
     while (p != NULL) {
         L->next = p->next;
@@ -27,7 +30,8 @@ __attribute__((unused)) void destroySingleList(SingleList L) {
     free(L);
 }
 
-__attribute__((unused)) int getSingleListLength(SingleList L) {
+int
+getSingleListLength(SingleList L) {
     int length = 0;
     SingleList p = (SingleList) L->next;
     while (p != NULL) {
@@ -37,7 +41,8 @@ __attribute__((unused)) int getSingleListLength(SingleList L) {
     return length;
 }
 
-__attribute__((unused)) int getSingleListValue(SingleList L, int index) {
+int
+getSingleListValue(SingleList L, int index) {
     int length = 0;
     SingleList p = (SingleList) L->next;
     while (p != NULL) {
@@ -50,7 +55,8 @@ __attribute__((unused)) int getSingleListValue(SingleList L, int index) {
     return -1;
 }
 
-__attribute__((unused)) void setSingleListValue(SingleList L, int index, int value) {
+void
+setSingleListValue(SingleList L, int index, int value) {
     if (index > getSingleListLength(L) || index < 0) {
         exit(ERR_INDEX);
     }
@@ -68,7 +74,8 @@ __attribute__((unused)) void setSingleListValue(SingleList L, int index, int val
     }
 }
 
-__attribute__((unused)) void addSingleListValue(SingleList L, int value) {
+void
+addSingleListValue(SingleList L, int value) {
     SingleList p = L;
     while (p->next != NULL) {
         p = (SingleList) p->next;
@@ -81,7 +88,8 @@ __attribute__((unused)) void addSingleListValue(SingleList L, int value) {
     p->next->next = NULL;
 }
 
-__attribute__((unused)) void insertSingleListValue(SingleList L, int value, int index) {
+void
+insertSingleListValue(SingleList L, int value, int index) {
     int length = 0;
     SingleList p = L->next;
     while (p != NULL) {
@@ -100,7 +108,8 @@ __attribute__((unused)) void insertSingleListValue(SingleList L, int value, int 
     }
 }
 
-__attribute__((unused)) void removeSingleListValue(SingleList L, int index) {
+void
+removeSingleListValue(SingleList L, int index) {
     int length = 0;
     SingleList p = L->next;
     SingleList q = L;
@@ -116,7 +125,8 @@ __attribute__((unused)) void removeSingleListValue(SingleList L, int index) {
     }
 }
 
-__attribute__((unused)) void printSingleList(SingleList L) {
+void
+printSingleList(SingleList L) {
     SingleList p = L->next;
     while (p != NULL) {
         printf("%d ", p->data);

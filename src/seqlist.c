@@ -74,3 +74,10 @@ seqlist_print(seqlist L) {
     }
     return OK;
 }
+
+//TODO: 排序
+status
+seqlist_sort_by_id(seqlist *L) {
+
+    return OK;
+}
