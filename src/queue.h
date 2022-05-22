@@ -14,7 +14,7 @@ typedef struct {
 } node;
 
 typedef struct {
-    node data[MaxSize];
+    int data[MaxSize];
     int front, rear;
 } sequeue;
 
