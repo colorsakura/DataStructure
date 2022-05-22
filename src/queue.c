@@ -3,11 +3,12 @@
 //
 
 #include "queue.h"
+#include <stdbool.h>
 #include <stdlib.h>
 
 void init_queue(sequeue *queue) {
-    queue.front = 0;
-    queue.rear = 0;
+    queue->front = 0;
+    queue->rear = 0;
 }
 
 int is_empty(sequeue queue) {
@@ -15,10 +16,9 @@ int is_empty(sequeue queue) {
 }
 
 void enter_queue(sequeue *queue, int ndata) {
-    if((queue.rear+1) % MaxSize == queue.front) {
-        queue.data[queue.rear] = ndata;
-        queue.rear++;
-    } else exit(-1);
-    return ;
+    if ((queue->rear + 1) % MaxSize == queue->front) {
+        queue->data[queue->rear] = ndata;
+        queue->rear++;
+    } else
+        exit(-1);
 }
-
