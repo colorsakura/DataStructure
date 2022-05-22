@@ -3,6 +3,7 @@
 //
 
 #include "queue.h"
+#include <stdlib.h>
 
 void init_queue(sequeue *queue) {
     queue.front = 0;

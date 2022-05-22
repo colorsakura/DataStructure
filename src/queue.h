@@ -20,8 +20,8 @@ typedef struct {
 
 void init_queue(sequeue *queue);
 int is_empty(sequeue queue);
-void enter_queue(sequeue *queue);
+void enter_queue(sequeue *queue, int ndata);
 void delete_queue(sequeue *queue);
-void get_head(sequeue queue, node *ndata);
+void get_head(sequeue queue);
 
 #endif//DATASTRUCTURE_QUEUE_H
