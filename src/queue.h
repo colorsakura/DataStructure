@@ -5,6 +5,7 @@
 #ifndef DATASTRUCTURE_QUEUE_H
 #define DATASTRUCTURE_QUEUE_H
 
+#include <stdbool.h>
 #define MaxSize 30
 
 typedef struct {
@@ -18,10 +19,10 @@ typedef struct {
     int front, rear;
 } sequeue;
 
-void init_queue(sequeue *queue);
-int is_empty(sequeue queue);
-void enter_queue(sequeue *queue, int ndata);
-void delete_queue(sequeue *queue);
-void get_head(sequeue queue);
+bool init_queue(sequeue *queue);
+bool is_empty(sequeue queue);
+bool enter_queue(sequeue *queue, int ndata);
+bool delete_queue(sequeue *queue, int *ndata);
+bool get_head(sequeue queue);
 
 #endif//DATASTRUCTURE_QUEUE_H
