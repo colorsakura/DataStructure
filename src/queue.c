@@ -4,7 +4,6 @@
 
 #include "queue.h"
 #include <stdbool.h>
-#include <stdlib.h>
 
 bool init_queue(sequeue *queue) {
     queue->front = 0;
