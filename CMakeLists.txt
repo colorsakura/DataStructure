@@ -3,4 +3,4 @@ project(DataStructure LANGUAGES C VERSION 0.0.1)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(DataStructure src/main.c src/queue.h src/queue.c)
+add_executable(queue src/main_queue.c src/queue.h src/queue.c)
