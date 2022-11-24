@@ -1,9 +1,10 @@
-#include "queue.h"
+#include "../src/queue.h"
 #include <stdio.h>
 
 void print_queue(sequeue);
 
-int main(void) {
+int main(void)
+{
     // 测试队列
     printf("数据结构：队列\n");
 
@@ -12,7 +13,8 @@ int main(void) {
     init_queue(&num_queue);
 
     // 入队
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         enter_queue(&num_queue, i);
     }
     print_queue(num_queue);
@@ -20,7 +22,8 @@ int main(void) {
     printf("Hello World!\n");
     // 出队
     int tmp;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         printf("%d\n", get_head(num_queue));
         delete_queue(&num_queue, &tmp);
     }
@@ -30,8 +33,10 @@ int main(void) {
     return 0;
 }
 
-void print_queue(sequeue Q) {
-    for (int i = 0; i < ((Q.rear + MaxSize - Q.front) % MaxSize); i++) {
+void print_queue(sequeue Q)
+{
+    for (int i = 0; i < ((Q.rear + MaxSize - Q.front) % MaxSize); i++)
+    {
         printf("%d, ", Q.data[(Q.front + i) % MaxSize]);
     }
 }
