@@ -17,6 +17,7 @@ int is_empty(list L);
 int is_last(position P, list L);
 position find(element_type X, list L);
 void delete(element_type X, list L);
+void deletes(element_type X, list L);
 position find_previous(element_type X, list L);
 void insert(element_type X, list L, position P);
 void delete_list(list L);

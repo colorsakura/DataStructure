@@ -43,6 +43,8 @@ position find(element_type X, list L)
 	}
 	return P;
 }
+
+// 删除首次出现的节点
 void delete(element_type X, list L)
 {
 	position P, tmp;
@@ -54,6 +56,21 @@ void delete(element_type X, list L)
 		free(tmp);
 	}
 }
+
+// 删除所有出现的 X
+void deletes(element_type X, list L)
+{
+	position P, tmp;
+	while ((P = find_previous(X, L)) != NULL) {
+		if (!is_last(P, L)) {
+			tmp = P->next;
+			P->next = tmp->next;
+			free(tmp);
+		}
+
+	}
+}
+
 position find_previous(element_type X, list L)
 {
 	position P;
@@ -61,7 +78,8 @@ position find_previous(element_type X, list L)
 	while (P->next != NULL && P->next->elem != X) {
 		P = P->next;
 	}
-	return P;
+	// 如果没有 X，应该返回 NULL
+	return P = is_last(P, L)? NULL : P;
 }
 
 // 在 P 后面插入 X
@@ -81,7 +99,7 @@ void delete_list(list L)
 	position P, tmp;
 	P = L->next;
 	L->next = NULL;
-	while(P != NULL) {
+	while (P != NULL) {
 		tmp = P->next;
 		free(P);
 		P = tmp;
