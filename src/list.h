@@ -6,6 +6,7 @@
 #define DATASTRUCTURE_LIST_H
 
 #define element_type int
+#define fatal_err(str) fprintf(stderr, "%s\n", str), exit(1)
 
 struct node;
 typedef struct node *ptr_node;

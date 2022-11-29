@@ -1,11 +1,10 @@
 //
 // Created by iflyg on 26/11/2022.
-//
+// 单链表实现，有头节点
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "list.h"
-
-#define fatal_err(str) fprintf(stderr, "%s\n", str), exit(1)
 
 struct node {
 	element_type elem;
@@ -44,7 +43,7 @@ position find(element_type X, list L)
 	return P;
 }
 
-// 删除首次出现的节点
+//删除首次出现的节点
 void delete(element_type X, list L)
 {
 	position P, tmp;
@@ -57,7 +56,7 @@ void delete(element_type X, list L)
 	}
 }
 
-// 删除所有出现的 X
+//删除所有出现的 X
 void deletes(element_type X, list L)
 {
 	position P, tmp;
@@ -78,8 +77,9 @@ position find_previous(element_type X, list L)
 	while (P->next != NULL && P->next->elem != X) {
 		P = P->next;
 	}
-	// 如果没有 X，应该返回 NULL
-	return P = is_last(P, L)? NULL : P;
+	//如果没有 X，应该返回 NULL
+	//return P = is_last(P, L)? NULL : P;
+	return P;
 }
 
 // 在 P 后面插入 X

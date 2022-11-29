@@ -6,3 +6,7 @@ set(CMAKE_C_STANDARD 11)
 add_executable(test_queue test/test_queue.c src/queue.h src/queue.c)
 
 add_executable(test_list test/test_list.c src/list.h src/list.c)
+
+add_executable(polynomial example/polynomial.c example/polynomial.h example/calculator/main.c)
+
+add_executable(test_stack src/stack.c src/stack.h)

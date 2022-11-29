@@ -16,21 +16,17 @@ int main(void)
 	pt = header(test_list);
 	print_list(test_list);
 
-	printf("删除测试\n");
 	for (int i = 0; i < 10; i++) {
 		insert(i, test_list, pt);
 		print_list(test_list);
 		pt = advance(pt);
 	}
-	for (int i = 0; i < 5; i++) {
-		insert(2, test_list, pt);
-		pt = advance(pt);
-	}
-	print_list(test_list);
-	deletes(2, test_list);
-	print_list(test_list);
+
+//	deletes(2, test_list);
+//	print_list(test_list);
 
 	printf("%d\n", retrieve(find_previous(9, test_list)));
+
 	print_list(test_list);
 
 	for (int i = 0; i < 10; i += 2)
