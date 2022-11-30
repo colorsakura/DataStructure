@@ -38,7 +38,13 @@ void check_string_valid(const char *str)
 void remove_blank(char *str) {
 	char *tmp = str;
 	size_t len = strlen(str);
-	for(int i = 0; i < len; i++){
-
+	int i = 0;
+	while (*tmp) {
+		if (*tmp != ' ') {
+			str[i++] = *tmp;
+		}
+		tmp++;
 	}
+	str[i] = '\0';
+	printf("%s\n", str);
 }

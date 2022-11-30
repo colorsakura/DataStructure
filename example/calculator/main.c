@@ -6,7 +6,7 @@
 #include "cal_string.h"
 #define err(str) fprintf(stderr, "%s\n", str), exit(1)
 
-#define MAXSTRING 40 //输入的字符限制
+#define MAXSTRING 100 //输入的字符限制
 
 void hello_calculator(void);
 void get_input_string(char *);
@@ -21,6 +21,8 @@ int main(void)
 
 	check_string_valid(input_string);
 
+	remove_blank(input_string);
+
 	return 0;
 }
 
@@ -28,7 +30,7 @@ void get_input_string(char *str)
 {
 	/*gets_s(str, 40);*/ // 超出范围后，异常退出
 	/* FIXME: windows clang15 + msvc 无法正常运行 */
-	if(fgets(str, 40, stdin) == NULL)
+	if(fgets(str, MAXSTRING, stdin) == NULL)
 		err("your input string is too long...");
 	printf_s("%s\n", str);
 }
