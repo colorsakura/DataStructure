@@ -15,7 +15,7 @@ int main(void)
     // 入队
     for (int i = 0; i < 10; i++)
     {
-        enter_queue(&num_queue, i);
+	    enqueue(&num_queue, i);
     }
     print_queue(num_queue);
 
@@ -25,7 +25,7 @@ int main(void)
     for (int i = 0; i < 5; i++)
     {
         printf("%d\n", get_head(num_queue));
-        delete_queue(&num_queue, &tmp);
+	dequeue(&num_queue, &tmp);
     }
     print_queue(num_queue);
 

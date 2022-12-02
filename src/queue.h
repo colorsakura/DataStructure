@@ -16,13 +16,14 @@ typedef struct {
 
 typedef struct {
     int data[MaxSize];
-    int front, rear;
+    int front, rear, size;
 } sequeue;
 
 bool init_queue(sequeue *queue);
 bool is_empty(sequeue queue);
-bool enter_queue(sequeue *queue, int ndata);  // 入队
-bool delete_queue(sequeue *queue, int *ndata);// 出队
+bool is_full(sequeue queue);
+bool enqueue(sequeue *queue, int ndata);  // 入队
+bool dequeue(sequeue *queue, int *ndata);// 出队
 int get_head(sequeue queue);
 
 #endif//DATASTRUCTURE_QUEUE_H
