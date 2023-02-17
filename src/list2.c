@@ -80,3 +80,5 @@ position advance(position P)
 element_type retrieve(position P)
 {
 }
+
+/* vim: set sw=8 et: */
